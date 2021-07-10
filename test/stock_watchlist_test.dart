@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:vale_app/stock_watchlist.dart';
+import 'package:mockito/mockito.dart';
+
+class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 void main() {
   testWidgets('Add and remove a stock from watchlist',

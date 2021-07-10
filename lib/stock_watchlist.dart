@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vale_app/stock_annual_report_viewer.dart';
 
 class StockWatchlist extends StatefulWidget {
   const StockWatchlist({Key? key}) : super(key: key);
@@ -34,7 +35,18 @@ class _StockWatchlistState extends State<StockWatchlist> {
                   return Dismissible(
                     key: Key('$stock$index'),
                     onDismissed: (direction) => stockWatchlist.removeAt(index),
-                    child: ListTile(title: Text(stock)),
+                    child: ListTile(
+                      title: Text(stock),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                StockAnnualReportViewer(stock: stock),
+                          ),
+                        );
+                      },
+                    ),
                     background: Container(color: Colors.red),
                   );
                 },

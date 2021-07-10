@@ -13,7 +13,8 @@ class StockAnnualReportViewer extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: Text("$stock annual report")),
         body: Container(
-          child: Text(""),
+          padding: EdgeInsets.all(8.0),
+          child: Text("<annual report>"),
         ),
       ),
     );
