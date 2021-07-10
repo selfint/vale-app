@@ -9,7 +9,7 @@ class StockWatchlist extends StatefulWidget {
 
 class _StockWatchlistState extends State<StockWatchlist> {
   static const _appTitle = 'Stock Watchlist';
-  final todos = <String>[];
+  final stockWatchlist = <String>[];
   final controller = TextEditingController();
 
   @override
@@ -27,14 +27,14 @@ class _StockWatchlistState extends State<StockWatchlist> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: todos.length,
+                itemCount: stockWatchlist.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final todo = todos[index];
+                  final stock = stockWatchlist[index];
 
                   return Dismissible(
-                    key: Key('$todo$index'),
-                    onDismissed: (direction) => todos.removeAt(index),
-                    child: ListTile(title: Text(todo)),
+                    key: Key('$stock$index'),
+                    onDismissed: (direction) => stockWatchlist.removeAt(index),
+                    child: ListTile(title: Text(stock)),
                     background: Container(color: Colors.red),
                   );
                 },
@@ -45,7 +45,7 @@ class _StockWatchlistState extends State<StockWatchlist> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             setState(() {
-              todos.add(controller.text);
+              stockWatchlist.add(controller.text.toUpperCase());
               controller.clear();
             });
           },
